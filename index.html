@@ -225,6 +225,9 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#test-environment" class="toc-h1 toc-link" data-title="Test Environment">Test Environment</a>
+          </li>
+          <li>
             <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
               <ul class="toc-list-h2">
                   <li>
@@ -276,6 +279,9 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
 </aside>
 
 <p>The GET APIs are browser explorable: the browser will ask for the credentials. Enter the auth token in the username field and leave the password field empty.</p>
+<h1 id='test-environment'>Test Environment</h1>
+<p>A simple sandbox feature is available to facilitate new integrations.
+A special auth token <code>TEST</code> can be used with all endpoints. When you use this auth token, you will receive fake data in the HTTP response. This fake data is in the same format and encoding than real data.</p>
 <h1 id='products'>Products</h1><h2 id='get-products'>Get Products</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/products?products=8-56140,LOP-LP5"</span>
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
 </code></pre>
