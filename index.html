@@ -265,6 +265,8 @@
 
 <p>An API auth token is linked to a Transit Customer Zone account.</p>
 
+<p>The linked Transit Customer Zone account defines the Transit warehouse and default ship-to location used by the API.</p>
+
 <p>Transit expects for the API auth token to be included in all API requests to the server in a header that looks like the following:</p>
 
 <p><code>Authorization: Basic YourAuthTokenBase64</code></p>
@@ -346,17 +348,20 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
   -H <span class="s2">"Content-Type: application/json"</span>
   -d <span class="s1">'{
     "purchaseOrder": "123456",
-    "shipToLanguageNo": "EN",
-    "shipToName": "John Doe",
-    "shipToPhone": "(514) 432-4323",
-    "shipToEmail": "johndoe@hotmail.com",
-    "shipToAddressLine1": "123, Fake street",
-    "shipToAddressLine2": null,
-    "shipToCity": "Montreal",
-    "shipToState": "QC",
-    "shipToZip": "D6G 9J4",
-    "shipToCountry": "CA",
-    "shipToNote": "LAISSER SUR PLACE SI PERSONNE",
+    "isPickup": false,
+    "shipTo": {
+      "LanguageNo": "EN",
+      "Name": "John Doe",
+      "Phone": "(514) 432-4323",
+      "Email": "johndoe@hotmail.com",
+      "AddressLine1": "123, Fake street",
+      "AddressLine2": null,
+      "City": "Montreal",
+      "State": "QC",
+      "Zip": "D6G 9J4",
+      "Country": "CA",
+      "Note": "LAISSER SUR PLACE SI PERSONNE"
+    },
     "details": [
         { "product": "8-56140", "qty": 2 },
         { "product": "LOP-LP5", "qty": 1 }
@@ -387,67 +392,77 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
 <td>Unique alphanumeric order number, will be set as the PO on the Transit Invoice for this order. Max 10 characters.</td>
 </tr>
 <tr>
-<td>shipToLanguageNo</td>
+<td>isPickup</td>
+<td>yes</td>
+<td>false if you want Transit to ship the order. true for a customer pickup at Transit Warehouse.</td>
+</tr>
+<tr>
+<td>shipTo</td>
+<td>no</td>
+<td>Don&#39;t specify the shipTo object for pickup orders or if you want to keep the default shipto configured in the linked Transit Customer Zone account.</td>
+</tr>
+<tr>
+<td>shipTo.LanguageNo</td>
 <td>yes</td>
 <td>Packing Slip Language. Must be EN, or FR.</td>
 </tr>
 <tr>
-<td>shipToName</td>
+<td>shipTo.Name</td>
 <td>yes</td>
 <td>Ship to name, on carrier label, packing slip</td>
 </tr>
 <tr>
-<td>shipToPhone</td>
+<td>shipTo.Phone</td>
 <td>yes</td>
 <td>Ship to phone, for carrier</td>
 </tr>
 <tr>
-<td>shipToEmail</td>
+<td>shipTo.Email</td>
 <td>no</td>
 <td>Ship to email, for carrier</td>
 </tr>
 <tr>
-<td>shipToAddressLine1</td>
+<td>shipTo.AddressLine1</td>
 <td>yes</td>
 <td>Ship to address line 1</td>
 </tr>
 <tr>
-<td>shipToAddressLine2</td>
+<td>shipTo.AddressLine2</td>
 <td>no</td>
 <td>Ship to address line 2</td>
 </tr>
 <tr>
-<td>shipToCity</td>
+<td>shipTo.City</td>
 <td>yes</td>
 <td>Ship to city</td>
 </tr>
 <tr>
-<td>shipToState</td>
+<td>shipTo.State</td>
 <td>yes</td>
 <td>Ship to state (2 char)</td>
 </tr>
 <tr>
-<td>shipToZip</td>
+<td>shipTo.Zip</td>
 <td>yes</td>
 <td>Ship to zip/postal code</td>
 </tr>
 <tr>
-<td>shipToCountry</td>
+<td>shipTo.Country</td>
 <td>yes</td>
 <td>Ship to country must always be CA.</td>
 </tr>
 <tr>
-<td>shipToNote</td>
+<td>shipTo.Note</td>
 <td>yes</td>
 <td>Ship to note (for carrier/customer) max 100 caracters.</td>
 </tr>
 <tr>
-<td>product</td>
+<td>details.product</td>
 <td>yes</td>
 <td>Transit part number</td>
 </tr>
 <tr>
-<td>qty</td>
+<td>details.qty</td>
 <td>yes</td>
 <td>Order Qty</td>
 </tr>
@@ -471,7 +486,7 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
 </tr>
 <tr>
 <td>2002</td>
-<td>shipToLanguageNo must be EN or FR.</td>
+<td>shipTo LanguageNo must be EN or FR.</td>
 </tr>
 <tr>
 <td>2003</td>
@@ -499,11 +514,11 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
 </tr>
 <tr>
 <td>2009</td>
-<td>shipToState must be 2 letters. Quebec = QC.</td>
+<td>shipTo State must be 2 letters. Quebec = QC.</td>
 </tr>
 <tr>
 <td>2010</td>
-<td>shipToCountry must be CA.</td>
+<td>shipTo Country must be CA.</td>
 </tr>
 <tr>
 <td>2101</td>
@@ -511,31 +526,31 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
 </tr>
 <tr>
 <td>2102</td>
-<td>shipToLanguageNo is required.</td>
+<td>shipTo LanguageNo is required.</td>
 </tr>
 <tr>
 <td>2103</td>
-<td>shipToName is required.</td>
+<td>shipTo Name is required.</td>
 </tr>
 <tr>
 <td>2104</td>
-<td>shipToPhone is required.</td>
+<td>shipTo Phone is required.</td>
 </tr>
 <tr>
 <td>2105</td>
-<td>shipToAddressLine1 is required.</td>
+<td>shipTo AddressLine1 is required.</td>
 </tr>
 <tr>
 <td>2106</td>
-<td>shipToCity is required.</td>
+<td>shipTo City is required.</td>
 </tr>
 <tr>
 <td>2107</td>
-<td>shipToState is required.</td>
+<td>shipTo State is required.</td>
 </tr>
 <tr>
 <td>2108</td>
-<td>shipToZip is required.</td>
+<td>shipTo Zip is required.</td>
 </tr>
 <tr>
 <td>2109</td>
