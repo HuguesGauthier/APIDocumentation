@@ -247,6 +247,14 @@
               </ul>
           </li>
           <li>
+            <a href="#inventory" class="toc-h1 toc-link" data-title="Inventory">Inventory</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-inventory" class="toc-h2 toc-link" data-title="Get Inventory">Get Inventory</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -631,6 +639,73 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>5002</td>
 <td>Order details not found.</td>
+</tr>
+</tbody></table>
+<h1 id='inventory'>Inventory</h1><h2 id='get-inventory'>Get Inventory</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/inventory?warehouse=001&amp;type=FULL&amp;format=JSON"</span>
+  -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Full-201902130145"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"inventory"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="s2">"8-56140"</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="s2">"LOP-LP5"</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the inventory for a specific Transit warehouse, all products.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.transitinc.com/v1/inventory</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>warehouse</td>
+<td>yes</td>
+<td>Transit warehouse code. Example: 001 is Levis Warehouse.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>yes</td>
+<td>FULL for a full list of products, refreshed each night. UPDATE for the list of products containing changes since last night.</td>
+</tr>
+<tr>
+<td>format</td>
+<td>yes</td>
+<td>JSON for json output. CSV for csv output.</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes'>Error codes</h3>
+<p>See the <a href="#errors">Errors</a> section to know how to read error codes.</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>6001</td>
+<td>Access not configured for this warehouse.</td>
+</tr>
+<tr>
+<td>6002</td>
+<td>Invalid type.</td>
+</tr>
+<tr>
+<td>6003</td>
+<td>Invalid format.</td>
+</tr>
+<tr>
+<td>6004</td>
+<td>Information not available at this time.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
