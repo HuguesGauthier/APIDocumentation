@@ -233,6 +233,9 @@
                   <li>
                     <a href="#get-products" class="toc-h2 toc-link" data-title="Get Products">Get Products</a>
                   </li>
+                  <li>
+                    <a href="#get-products-v2" class="toc-h2 toc-link" data-title="Get Products V2">Get Products V2</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -240,6 +243,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#submit-order" class="toc-h2 toc-link" data-title="Submit Order">Submit Order</a>
+                  </li>
+                  <li>
+                    <a href="#submit-order-v2" class="toc-h2 toc-link" data-title="Submit Order V2">Submit Order V2</a>
                   </li>
                   <li>
                     <a href="#get-order" class="toc-h2 toc-link" data-title="Get Order">Get Order</a>
@@ -359,6 +365,122 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>4001</td>
 <td>At least one product number is required.</td>
+</tr>
+</tbody></table>
+<h2 id='get-products-v2'>Get Products V2</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v2/products?whse=001&amp;products=8-56140,LOP-LP5"</span>
+  -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8-56140"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROTOR (TOP QUALITY)"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.30000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.64</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"each"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"altPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.64</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"altUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"each"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">74</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18-ATO10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STD BLADE FUSES 10 AMPS (TOP QUALITY)"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0200</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.60</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"altPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.06</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"altUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AQL-47101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AQUAPEL GLASS TREATMENT (AQUAPEL)"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.10400</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.95</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"each"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"altPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.95</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"altUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"each"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.59</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"altPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.59</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.19</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"altPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.19</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.89</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"altPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.89</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">494</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a list of products.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.transitinc.com/v2/products</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>products</td>
+<td>yes</td>
+<td>Comma separated list of Transit part numbers</td>
+</tr>
+<tr>
+<td>whse</td>
+<td>no</td>
+<td>Transit warehouse to get results from</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  Remember — The request must be authenticated.
+</aside>
+
+<aside class="notice">
+  <a href="/v2/products?whse=001&products=8-56140,LOP-LP5">Try now in your browser</a>
+</aside>
+<h3 id='error-codes-2'>Error codes</h3>
+<p>See the <a href="#errors">Errors</a> section to know how to read error codes.</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2003</td>
+<td>Product XXX is invalid.</td>
+</tr>
+<tr>
+<td>2003</td>
+<td>Product XXX not found in Warehouse XXX.</td>
+</tr>
+<tr>
+<td>4001</td>
+<td>At least one product number is required.</td>
+</tr>
+<tr>
+<td>6001</td>
+<td>Invalid warehouse, or access not allowed for this warehouse.</td>
 </tr>
 </tbody></table>
 <h1 id='orders'>Orders</h1><h2 id='submit-order'>Submit Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders"</span>
@@ -589,6 +711,365 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <td>shipTo address is invalid.</td>
 </tr>
 </tbody></table>
+<h2 id='submit-order-v2'>Submit Order V2</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v2/orders"</span>
+  -X POST
+  -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -d <span class="s1">'{
+    "whse": "001",
+    "whsePickup": "001",
+    "purchaseOrder": "123456",
+    "shippingService": "UPSGround",
+    "transitNote": "transit note",
+    "documentNote": "document note",
+    "shipTo": {
+        "languageNo": "EN",
+        "name": "John Doe",
+        "phone": "(514) 432-4323",
+        "email": "johndoe@hotmail.com",
+        "addressLine1": "123, Fake street",
+        "addressLine2": null,
+        "addressLine3": null,
+        "city": "Montreal",
+        "state": "QC",
+        "zip": "D6G 9J4",
+        "country": "CA",
+        "note": "LAISSER SUR PLACE SI PERSONNE"
+    },
+    "details": [
+        {
+            "product": "8-56140",
+            "crossReference": "ref#"
+            "qty": 2,
+            "keepBo": true,
+            "declaredValue": 9.99
+        },
+        {
+            "product": "LOP-LP5",
+            "crossReference": "ref#"
+            "qty": 1,
+            "keepBo": true,
+            "declaredValue": 9.99
+        }
+    ]
+}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint submits a new order to Transit.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.transitinc.com/v2/orders</code></p>
+<h3 id='http-response'>HTTP Response</h3>
+<p><code>Status code: 201</code><br>
+<code>Location header: /v1/orders/purchase-order</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>whse</td>
+<td>no</td>
+<td>Warehouse at which you wish to submit your order, will default to your default warehouse.</td>
+</tr>
+<tr>
+<td>whsePickup</td>
+<td>no</td>
+<td>For pickup orders, Warehouse at which you wish to pickup your order.</td>
+</tr>
+<tr>
+<td>purchaseOrder</td>
+<td>yes</td>
+<td>Unique alphanumeric order number, will be set as the PO on the Transit Invoice for this order.</td>
+</tr>
+<tr>
+<td>shippingService</td>
+<td>no</td>
+<td>For shipped orders, the desired shipping service.</td>
+</tr>
+<tr>
+<td>transitNote</td>
+<td>no</td>
+<td>Transit <strong>will</strong> take note of this. This note will not be printed on any document. The nature of this note may cause delays.</td>
+</tr>
+<tr>
+<td>documentNote</td>
+<td>no</td>
+<td>Transit <strong>will not</strong> take note of this. This note will be printed on the documents related to this order.</td>
+</tr>
+<tr>
+<td>shipTo</td>
+<td>no</td>
+<td>Don&#39;t specify the shipTo object for pickup orders or if you want to keep the default shipto configured in the linked Transit Customer Zone account.</td>
+</tr>
+<tr>
+<td>shipTo.languageNo</td>
+<td>yes</td>
+<td>Packing Slip Language. Must be EN, or FR.</td>
+</tr>
+<tr>
+<td>shipTo.name</td>
+<td>yes</td>
+<td>Ship to name, on carrier label, packing slip</td>
+</tr>
+<tr>
+<td>shipTo.phone</td>
+<td>yes</td>
+<td>Ship to phone, for carrier</td>
+</tr>
+<tr>
+<td>shipTo.email</td>
+<td>no</td>
+<td>Ship to email, for carrier</td>
+</tr>
+<tr>
+<td>shipTo.addressLine1</td>
+<td>yes</td>
+<td>Ship to address line 1</td>
+</tr>
+<tr>
+<td>shipTo.addressLine2</td>
+<td>no</td>
+<td>Ship to address line 2</td>
+</tr>
+<tr>
+<td>shipTo.addressLine3</td>
+<td>no</td>
+<td>Ship to address line 3</td>
+</tr>
+<tr>
+<td>shipTo.city</td>
+<td>yes</td>
+<td>Ship to city</td>
+</tr>
+<tr>
+<td>shipTo.state</td>
+<td>yes</td>
+<td>Ship to state</td>
+</tr>
+<tr>
+<td>shipTo.zip</td>
+<td>yes</td>
+<td>Ship to zip/postal code</td>
+</tr>
+<tr>
+<td>shipTo.country</td>
+<td>yes</td>
+<td>Ship to country must be CA or US.</td>
+</tr>
+<tr>
+<td>shipTo.note</td>
+<td>yes</td>
+<td>Ship to note (for carrier/customer).</td>
+</tr>
+<tr>
+<td>details</td>
+<td>yes</td>
+<td>List of products you wish to order.</td>
+</tr>
+<tr>
+<td>details.product</td>
+<td>yes</td>
+<td>Transit part number</td>
+</tr>
+<tr>
+<td>details.qty</td>
+<td>yes</td>
+<td>Order Qty in <strong>stocking units</strong> (With a P10 product, request 1 to get a pack of 10)</td>
+</tr>
+<tr>
+<td>details.crossReference</td>
+<td>no</td>
+<td>Reference number for the product.</td>
+</tr>
+<tr>
+<td>details.keepBo</td>
+<td>no</td>
+<td>Keep back order if there is not enough stock to fullfill your order.</td>
+</tr>
+<tr>
+<td>details.declaredValue</td>
+<td>no</td>
+<td>Declared valued of the product. For international dropship orders.</td>
+</tr>
+</tbody></table>
+<h3 id='error-codes-2'>Error codes</h3>
+<p>See the <a href="#errors">Errors</a> section to know how to read error codes.</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2000</td>
+<td>Order not created because the request contains error(s).</td>
+</tr>
+<tr>
+<td>2001</td>
+<td>Purchase Order must be unique.</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>Ship To LanguageNo must be EN or FR.</td>
+</tr>
+<tr>
+<td>2003</td>
+<td>product XXX is invalid.</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>Quantity must be greater than zero for product XXX.</td>
+</tr>
+<tr>
+<td>2006</td>
+<td>Purchase Order&#39;s characters allowed are alphanumeric, dash and underscore.</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>Purchase Order must not exceed 22 characters..</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>Ship To Country Code must be CA or US.</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Product XXX not found in Warehouse XXX.</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>Back Order option only available for STOCK products. (Product XXX)</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>Invalid pickup warehouse.</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>Shipping Service must not exceed 100 characters.</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>Invalid Shipping Service.</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>Oups! Qty XX exceeds our availability of XX for product XXX.</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>Declared value must be greater than zero. (Product XXX)</td>
+</tr>
+<tr>
+<td>2101</td>
+<td>purchaseOrder is required.</td>
+</tr>
+<tr>
+<td>2102</td>
+<td>Ship To LanguageNo is required.</td>
+</tr>
+<tr>
+<td>2103</td>
+<td>Ship To Name is required.</td>
+</tr>
+<tr>
+<td>2104</td>
+<td>Ship To Phone is required.</td>
+</tr>
+<tr>
+<td>2105</td>
+<td>Ship To Address Line 1 is required.</td>
+</tr>
+<tr>
+<td>2106</td>
+<td>Ship To City is required.</td>
+</tr>
+<tr>
+<td>2107</td>
+<td>Ship To State is required.</td>
+</tr>
+<tr>
+<td>2108</td>
+<td>Ship To Zip is required.</td>
+</tr>
+<tr>
+<td>2109</td>
+<td>Ship To Country Code is required.</td>
+</tr>
+<tr>
+<td>2110</td>
+<td>A product is required.</td>
+</tr>
+<tr>
+<td>2113</td>
+<td>Ship To Name must not exceed 30 characters.</td>
+</tr>
+<tr>
+<td>2114</td>
+<td>Concatenated Ship To Address Lines must not exceed 90 characters.</td>
+</tr>
+<tr>
+<td>2115</td>
+<td>ShipTo City must not exceed 20 characters.</td>
+</tr>
+<tr>
+<td>2116</td>
+<td>Ship To State Code must not exceed 2 characters.</td>
+</tr>
+<tr>
+<td>2117</td>
+<td>Ship To Zip must not exceed 10 characters.</td>
+</tr>
+<tr>
+<td>2119</td>
+<td>Ship To Phone must not exceed 20 characters.</td>
+</tr>
+<tr>
+<td>2120</td>
+<td>Ship To Email must not exceed 60 characters.</td>
+</tr>
+<tr>
+<td>2121</td>
+<td>Note must not exceed 30 characters.</td>
+</tr>
+<tr>
+<td>2122</td>
+<td>Document Note must not exceed 960 characters.</td>
+</tr>
+<tr>
+<td>2125</td>
+<td>Transit Note must not exceed 960 characters.</td>
+</tr>
+<tr>
+<td>2126</td>
+<td>Cross reference must not exceed 24 characters for product XXX.</td>
+</tr>
+<tr>
+<td>2128</td>
+<td>Invalid state for Country XX.</td>
+</tr>
+<tr>
+<td>2129</td>
+<td>Declared value is required for international sales. (Product XXX)</td>
+</tr>
+<tr>
+<td>6001</td>
+<td>Invalid warehouse, or access not allowed for this warehouse.</td>
+</tr>
+</tbody></table>
+<h3 id='warnings'>Warnings</h3>
+<p>Product XXX, XX units ordered, XX units kept BO.</p>
 <h2 id='get-order'>Get Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders/123456"</span>
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
 </code></pre>
@@ -617,9 +1098,9 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves an order.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.transitinc.com/v1/orders/&lt;purchaseOrder&gt;</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -633,7 +1114,7 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <td>Supplied purchaseOrder when the order was submitted.</td>
 </tr>
 </tbody></table>
-<h3 id='error-codes-2'>Error codes</h3>
+<h3 id='error-codes-3'>Error codes</h3>
 <p>See the <a href="#errors">Errors</a> section to know how to read error codes.</p>
 
 <table><thead>
