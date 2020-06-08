@@ -256,6 +256,11 @@
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#new-in-v2-routes" class="toc-h2 toc-link" data-title="New in V2 routes">New in V2 routes</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -352,8 +357,8 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 </tr>
 </thead><tbody>
 <tr>
-<td>n/a</td>
-<td>n/a</td>
+<td>4001</td>
+<td>At least one product number is required.</td>
 </tr>
 </tbody></table>
 <h1 id='orders'>Orders</h1><h2 id='submit-order'>Submit Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders"</span>
@@ -739,6 +744,10 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <p>For any other error, the response HTTP code is <code>500</code> instead of <code>200</code>.</p>
 
 <p>Additionnaly, a JSON object is returned with a detailed error code and message. If more than one error is encountered in the same request, an additionnal <code>errors</code> JSON array is returned.</p>
+<h3 id='new-in-v2-routes'>New in V2 routes</h3>
+<p>The error response always returns an &quot;errors&quot; array. It is empty if there is a single error.</p>
+
+<p>An error response will have HTTP code <code>400</code> (Bad Request).</p>
 
       </div>
       <div class="dark-box">
