@@ -471,7 +471,7 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <td>Product XXX is invalid.</td>
 </tr>
 <tr>
-<td>2003</td>
+<td>2011</td>
 <td>Product XXX not found in Warehouse XXX.</td>
 </tr>
 <tr>
@@ -794,7 +794,7 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>shippingService</td>
 <td>no</td>
-<td>For shipped orders, the desired shipping service.</td>
+<td>For shipped orders, the desired shipping service. <strong>If set, prevails over whsePickup, making the order a shipped order.</strong></td>
 </tr>
 <tr>
 <td>transitNote</td>
@@ -813,13 +813,13 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 </tr>
 <tr>
 <td>shipTo.languageNo</td>
-<td>yes</td>
-<td>Packing Slip Language. Must be EN, or FR.</td>
+<td>no</td>
+<td>Language used for notifications. Defaults to token&#39;s language no.</td>
 </tr>
 <tr>
 <td>shipTo.name</td>
 <td>yes</td>
-<td>Ship to name, on carrier label, packing slip</td>
+<td>Ship to name, on carrier label</td>
 </tr>
 <tr>
 <td>shipTo.phone</td>
@@ -974,10 +974,6 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>2101</td>
 <td>purchaseOrder is required.</td>
-</tr>
-<tr>
-<td>2102</td>
-<td>Ship To LanguageNo is required.</td>
 </tr>
 <tr>
 <td>2103</td>
