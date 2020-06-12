@@ -864,7 +864,7 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>shipTo.country</td>
 <td>yes</td>
-<td>Ship to country must be CA or US.</td>
+<td>Ship to country.</td>
 </tr>
 <tr>
 <td>shipTo.note</td>
@@ -884,12 +884,12 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>details.qty</td>
 <td>yes</td>
-<td>Order Qty in <strong>stocking units</strong> (With a P10 product, request 1 to get a pack of 10)</td>
+<td>Order Qty <em>(unit is used, no altUnit are supported)</em></td>
 </tr>
 <tr>
 <td>details.crossReference</td>
 <td>no</td>
-<td>Reference number for the product.</td>
+<td><em>Your</em> reference number for the product.</td>
 </tr>
 <tr>
 <td>details.keepBo</td>
@@ -899,7 +899,7 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>details.declaredValue</td>
 <td>no</td>
-<td>Declared valued of the product. For international dropship orders.</td>
+<td>Declared valued of the product. <em>Required</em> for international orders.</td>
 </tr>
 </tbody></table>
 <h3 id='error-codes-2'>Error codes</h3>
