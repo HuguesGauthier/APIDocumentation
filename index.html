@@ -282,6 +282,8 @@
 <p>You can use our API to access product information, submit new orders and view your order status in our database.</p>
 
 <p>You can view code examples in the dark area to the right. Any language able to make HTTP calls will work. The examples use shell scripting curl commands.</p>
+
+<p><strong>Please use the newest available APIs for all new implementations</strong></p>
 <h1 id='authentication'>Authentication</h1>
 <p>Transit uses API authentication tokens to allow access to the API. You can register a new Transit API auth token by communicating with your sales representative.</p>
 
@@ -301,7 +303,9 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
 <h1 id='test-environment'>Test Environment</h1>
 <p>A simple sandbox feature is available to facilitate new integrations.
 A special auth token <code>TEST</code> can be used with all endpoints. When you use this auth token, you will receive fake data in the HTTP response. This fake data is in the same format and encoding than real data.</p>
-<h1 id='products'>Products</h1><h2 id='get-products'>Get Products</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/products?products=8-56140,LOP-LP5"</span>
+<h1 id='products'>Products</h1><h2 id='get-products'>Get Products</h2>
+<p><strong>Please use v2 for any new implementation</strong></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/products?products=8-56140,LOP-LP5"</span>
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
 </code></pre>
 <blockquote>
@@ -483,7 +487,9 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <td>Invalid warehouse, or access not allowed for this warehouse.</td>
 </tr>
 </tbody></table>
-<h1 id='orders'>Orders</h1><h2 id='submit-order'>Submit Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders"</span>
+<h1 id='orders'>Orders</h1><h2 id='submit-order'>Submit Order</h2>
+<p><strong>Please use v2 for any new implementation</strong></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders"</span>
   -X POST
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
   -H <span class="s2">"Content-Type: application/json"</span>
