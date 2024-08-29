@@ -11,6 +11,7 @@ includes:
   - products
   - orders
   - inventory
+  - pricing
   - errors
 
 search: true

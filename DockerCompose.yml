@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  apidoc:
+    build: .
+    volumes:
+      - D:/DEV2/ApiDocumentation:/app
+    ports:
+      - "4567:4567"
+    command: /bin/bash
