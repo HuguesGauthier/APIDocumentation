@@ -304,7 +304,9 @@ You must replace <code>YourAuthTokenBase64</code> with your API auth token, <a h
 <p>A simple sandbox feature is available to facilitate new integrations.
 A special auth token <code>TEST</code> can be used with all endpoints. When you use this auth token, you will receive fake data in the HTTP response. This fake data is in the same format and encoding than real data.</p>
 <h1 id='products'>Products</h1><h2 id='get-products'>Get Products</h2>
-<p><strong>Please use v2 for any new implementation</strong></p>
+<aside class="warning">
+Please use v2 for any new implementation
+</aside>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/products?products=8-56140,LOP-LP5"</span>
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
 </code></pre>
@@ -371,7 +373,7 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <td>At least one product number is required.</td>
 </tr>
 </tbody></table>
-<h2 id='get-products-v2'>Get Products V2</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v2/products?whse=001&amp;products=8-56140,LOP-LP5"</span>
+<h2 id='get-products-v2'>Get Products V2</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v2/products?whse=001&amp;products=8-56140,LOP-LP5,PPC-D741&amp;ignoreProductError=true"</span>
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
 </code></pre>
 <blockquote>
@@ -428,7 +430,12 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">494</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2011</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product PPC-D741 not found in Warehouse 001."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a list of products.</p>
@@ -451,6 +458,11 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <td>whse</td>
 <td>no</td>
 <td>Transit warehouse to get results from</td>
+</tr>
+<tr>
+<td>ignoreProductError</td>
+<td>no</td>
+<td>true / false - When true products will be returned even if an error is encountered. Defaults to false.</td>
 </tr>
 </tbody></table>
 
@@ -488,7 +500,9 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 </tr>
 </tbody></table>
 <h1 id='orders'>Orders</h1><h2 id='submit-order'>Submit Order</h2>
-<p><strong>Please use v2 for any new implementation</strong></p>
+<aside class="warning">
+Please use v2 for any new implementation
+</aside>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders"</span>
   -X POST
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
@@ -790,7 +804,7 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <tr>
 <td>whsePickup</td>
 <td>no</td>
-<td>For pickup orders, Warehouse at which you wish to pickup your order.</td>
+<td>For pickup orders, Warehouse at which you wish to pickup your order. If not set, the order will be shipped using <em>shippingService</em> or the default shipping method registered to your account.</td>
 </tr>
 <tr>
 <td>purchaseOrder</td>
@@ -1072,7 +1086,11 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 </tbody></table>
 <h3 id='warnings'>Warnings</h3>
 <p>Product XXX, XX units ordered, XX units kept BO.</p>
-<h2 id='get-order'>Get Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders/123456"</span>
+<h2 id='get-order'>Get Order</h2>
+<aside class="notice">
+Get Order v2 not released yet
+</aside>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/orders/123456"</span>
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
 </code></pre>
 <blockquote>
@@ -1134,7 +1152,11 @@ A special auth token <code>TEST</code> can be used with all endpoints. When you 
 <td>Order details not found.</td>
 </tr>
 </tbody></table>
-<h1 id='inventory'>Inventory</h1><h2 id='get-inventory'>Get Inventory</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/inventory?warehouse=001&amp;type=FULL&amp;format=JSON"</span>
+<h1 id='inventory'>Inventory</h1><h2 id='get-inventory'>Get Inventory</h2>
+<aside class="notice">
+Get Inventory v2 not released yet
+</aside>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.transitinc.com/v1/inventory?warehouse=001&amp;type=FULL&amp;format=JSON"</span>
   -H <span class="s2">"Authorization: Basic YourAuthTokenBase64"</span>
 </code></pre>
 <blockquote>
